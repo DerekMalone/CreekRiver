@@ -43,5 +43,36 @@ app.MapGet("/api/campsites", (CreekRiverDbContext db) =>
     }).ToList();
 });
 
+app.MapGet("/api/campsites/{id}", (CreekRiverDbContext db, int id) =>
+{
+    try 
+    {
+        CampsiteDTO campsite = db.Campsites
+            .Include(c => c.CampsiteType)
+            .Select(c => new CampsiteDTO
+            {
+                Id = c.Id,
+                Nickname = c.Nickname,
+                CampsiteTypeId = c.CampsiteTypeId,
+                CampsiteType = new CampsiteTypeDTO
+                {
+                    Id = c.CampsiteType.Id,
+                    CampsiteTypeName = c.CampsiteType.CampsiteTypeName,
+                    FeePerNight = c.CampsiteType.FeePerNight,
+                    MaxReservationDays = c.CampsiteType.MaxReservationDays
+                }
+            })
+            .Single(c => c.Id == id);
+
+            return Results.Ok(campsite);
+    }
+    catch (InvalidOperationException)
+    {
+        return Results.NotFound();
+    }
+});
+
 app.Run();
 
+//! Pick up on Create a Campsite
+// ? https://github.com/nashville-software-school/server-side-dotnet-curriculum/blob/main/book-3-sql-efcore/chapters/creek-river-create-campsite.md

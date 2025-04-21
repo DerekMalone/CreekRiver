@@ -49,5 +49,3 @@ public class CreekRiverDbContext : DbContext
     }
 }
 
-//! Working on last two personal explinations in chapter for user-secrets and connection string. Can then move on.
-// ? https://github.com/nashville-software-school/server-side-dotnet-curriculum/blob/main/book-3-sql-efcore/chapters/creek-river-db-context.md
