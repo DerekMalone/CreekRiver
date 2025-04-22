@@ -109,5 +109,5 @@ app.MapPut("/api/campsites/{id}", (CreekRiverDbContext db, int id, Campsite camp
 
 app.Run();
 
-//! Pick up on Create a Campsite
-// ? https://github.com/nashville-software-school/server-side-dotnet-curriculum/blob/main/book-3-sql-efcore/chapters/creek-river-create-campsite.md
+//! Pick up on Get Reservations
+// ? https://github.com/nashville-software-school/server-side-dotnet-curriculum/blob/main/book-3-sql-efcore/chapters/creek-river-get-reservations.md
