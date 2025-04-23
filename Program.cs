@@ -177,5 +177,5 @@ app.MapDelete("/api/reservations/{id}", (CreekRiverDbContext db, int id) =>
 
 app.Run();
 
-//! Pick up on Get Reservations
-// ? https://github.com/nashville-software-school/server-side-dotnet-curriculum/blob/main/book-3-sql-efcore/chapters/creek-river-get-reservations.md
+//! Pick up on Calculating Total Nights and Cost
+// ? https://github.com/nashville-software-school/server-side-dotnet-curriculum/blob/main/book-3-sql-efcore/chapters/creek-river-calculated.md
